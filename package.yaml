@@ -1,0 +1,26 @@
+name: odn
+# synopsis:
+
+dependencies:
+  - base
+  - typed-process
+  - colourista
+  - text
+
+executable:
+  source-dirs: src
+  main: Main.hs
+
+ghc-options:
+  - -threaded
+  - -Weverything
+  - -Wno-implicit-prelude
+  - -Wno-safe
+  - -Wno-missing-import-lists
+  - -Wno-partial-fields
+  - -Wno-all-missed-specialisations
+  - -Wno-missing-local-signatures
+  - -Wno-unsafe
+
+default-extensions:
+  - OverloadedStrings
