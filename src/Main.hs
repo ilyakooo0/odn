@@ -52,13 +52,13 @@ colors = cycle [green, blue, magenta, cyan]
 
 writeOutput :: [String] -> String -> Handle -> IO Bool
 writeOutput color prog h = do
-  eof <- hIsEOF h
-  if eof
-    then return False
-    else do
+  inputAvailable <- hReady h
+  if inputAvailable
+    then do
       l <- hGetLine h
       putStrLn $ formatWith color (prog <> " | ") <> l
       return True
+    else return False
 
 prettifyProcesses :: [String] -> [String]
 prettifyProcesses ps' =
